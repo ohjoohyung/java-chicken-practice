@@ -13,7 +13,7 @@ public class PayService {
     public void pay() {
         try {
             Screen.visualizeTables();
-            final int tableNumber = InputView.inputTableNumberToPay();
+            final int tableNumber = InputView.inputTableNumber();
             Table table = TableRepository.getTableByTableNumber(tableNumber);
             OutputView.printOrders(table);
             OutputView.printPaymentMessage(tableNumber);

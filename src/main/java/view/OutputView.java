@@ -10,17 +10,18 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ %s ┘";
-    private static final String ORDER_SCREEN = "## 주문 내역";
+    private static final String TABLE_LIST_SCREEN = "## 테이블 목록";
+    private static final String ORDER_SCREEN = "\n## 주문 내역";
     private static final String MENU_COUNT_PRICE_SCREEN = "메뉴 수량 금액";
-    private static final String PAYMENT_MESSAGE = "## %d번 테이블의 결제를 진행합니다.\n";
-    private static final String TOTAL_PRICE_SCREEN = "## 최종 결제할 금액";
+    private static final String PAYMENT_MESSAGE = "\n## %d번 테이블의 결제를 진행합니다.\n";
+    private static final String TOTAL_PRICE_SCREEN = "\n## 최종 결제할 금액";
     private static final String TOTAL_PRICE_MESSAGE = "%d원\n";
     private OutputView() {
 
     }
 
     public static void printTables(final List<Table> tables) {
-        System.out.println("## 테이블 목록");
+        System.out.println(TABLE_LIST_SCREEN);
         final int size = tables.size();
         printLine(TOP_LINE, size);
         printTableNumbers(tables);
