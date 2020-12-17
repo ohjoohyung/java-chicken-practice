@@ -8,6 +8,10 @@ public class Table {
         this.number = number;
     }
 
+    public boolean isTableNumber(int tableNumber) {
+        return number == tableNumber;
+    }
+
     @Override
     public String toString() {
         return Integer.toString(number);

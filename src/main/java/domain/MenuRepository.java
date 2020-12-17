@@ -6,6 +6,7 @@ import java.util.List;
 
 public class MenuRepository {
     private static final List<Menu> menus = new ArrayList<>();
+    private static final String MENU_NUMBER_ERROR = "[ERROR] 메뉴 번호가 존재하지 않습니다.";
 
     static {
         menus.add(new Menu(1, "후라이드", Category.CHICKEN, 16_000));
@@ -20,5 +21,12 @@ public class MenuRepository {
 
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
+    }
+
+    public static Menu getMenuByMenuNumber(int menuNumber) {
+        return menus.stream()
+                .filter(menu -> menu.isMenuNumber(menuNumber))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(MENU_NUMBER_ERROR));
     }
 }

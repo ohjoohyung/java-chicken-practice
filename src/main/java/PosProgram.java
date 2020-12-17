@@ -1,11 +1,6 @@
-import domain.MainMenuType;
-import domain.Table;
-import domain.TableRepository;
+import domain.ActionType;
 import service.OrderService;
 import view.InputView;
-import view.OutputView;
-
-import java.util.List;
 
 public class PosProgram {
 
@@ -16,15 +11,15 @@ public class PosProgram {
     }
 
     public void run() {
-        MainMenuType mainMenuType;
+        ActionType actionType;
         do {
-            mainMenuType = InputView.inputMainMenu();
-            selectMenu(mainMenuType);
-        }while (!MainMenuType.END_PROGRAM.equals(mainMenuType));
+            actionType = InputView.inputMainMenu();
+            selectMenu(actionType);
+        }while (!ActionType.END_PROGRAM.equals(actionType));
     }
 
-    private void selectMenu(MainMenuType mainMenuType) {
-        if (MainMenuType.ORDER.equals(mainMenuType)) {
+    private void selectMenu(ActionType actionType) {
+        if (ActionType.ORDER.equals(actionType)) {
             orderService.order();
         }
     }

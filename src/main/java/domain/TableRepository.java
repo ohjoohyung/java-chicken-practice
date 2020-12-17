@@ -22,13 +22,10 @@ public class TableRepository {
         return Collections.unmodifiableList(tables);
     }
 
-    public static int checkTableExist(String tableNumber) {
-        for (Table table : tables) {
-            if (table.toString().equals(tableNumber)) {
-                return Integer.parseInt(tableNumber);
-            }
-        }
-        throw new IllegalArgumentException(TABLE_NUMBER_ERROR);
-
+    public static Table getTableByTableNumber(int tableNumber) {
+        return tables.stream()
+                .filter(table -> table.isTableNumber(tableNumber))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(TABLE_NUMBER_ERROR));
     }
 }
