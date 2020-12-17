@@ -1,6 +1,7 @@
 package view;
 
 import domain.ActionType;
+import domain.MenuCount;
 import utils.InputValidator;
 
 import java.util.Scanner;
@@ -42,8 +43,8 @@ public class InputView {
         return InputValidator.checkInteger(scanner.nextLine());
     }
 
-    public static String inputMenuCount() {
+    public static MenuCount inputMenuCount() {
         System.out.println(INPUT_MENU_COUNT);
-        return scanner.nextLine();
+        return new MenuCount(InputValidator.checkInteger(scanner.nextLine()));
     }
 }
