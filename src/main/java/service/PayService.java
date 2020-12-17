@@ -10,12 +10,15 @@ import view.Screen;
 public class PayService {
 
     public void pay() {
-        Screen.visualizeTables();
-        final int tableNumber = InputView.inputTableNumberToPay();
-        Table table = TableRepository.getTableByTableNumber(tableNumber);
-        OutputView.printOrders(table);
-        OutputView.printPaymentMessage(tableNumber);
-        PayType payType = InputView.inputPayType();
-
+        try {
+            Screen.visualizeTables();
+            final int tableNumber = InputView.inputTableNumberToPay();
+            Table table = TableRepository.getTableByTableNumber(tableNumber);
+            OutputView.printOrders(table);
+            OutputView.printPaymentMessage(tableNumber);
+            PayType payType = InputView.inputPayType();
+        }catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
