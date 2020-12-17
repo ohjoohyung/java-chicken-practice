@@ -7,11 +7,8 @@ public class Order {
     private static final String SPACE = " ";
     private Menu menu;
     private MenuCount menuCount;
-    private Map<Menu, MenuCount> orderMenus;
 
     public Order(Menu menu, MenuCount menuCount) {
-        orderMenus = new HashMap<>();
-        orderMenus.put(menu, menuCount);
         this.menu = menu;
         this.menuCount = menuCount;
     }
@@ -23,6 +20,18 @@ public class Order {
     public void addNewMenuCount(Order newOrder) {
         menuCount.checkOverMaxCountIfAdd(newOrder.menuCount);
         menuCount.addNewMenuCount(newOrder.menuCount);
+    }
+
+    public boolean isChickenOrdered() {
+        return menu.isChicken();
+    }
+
+    public int sumChickenCount(int chickenCount) {
+        return chickenCount + menuCount.getMenuCount();
+    }
+
+    public int calculateMenuPrice() {
+        return menu.getPrice() * menuCount.getMenuCount();
     }
 
     @Override

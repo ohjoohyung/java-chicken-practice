@@ -13,6 +13,8 @@ public class OutputView {
     private static final String ORDER_SCREEN = "## 주문 내역";
     private static final String MENU_COUNT_PRICE_SCREEN = "메뉴 수량 금액";
     private static final String PAYMENT_MESSAGE = "## %d번 테이블의 결제를 진행합니다.\n";
+    private static final String TOTAL_PRICE_SCREEN = "## 최종 결제할 금액";
+    private static final String TOTAL_PRICE_MESSAGE = "%d원\n";
     private OutputView() {
 
     }
@@ -66,5 +68,10 @@ public class OutputView {
 
     public static void printPaymentMessage(int tableNumber) {
         System.out.printf(PAYMENT_MESSAGE, tableNumber);
+    }
+
+    public static void printTotalPrice(int totalPrice) {
+        System.out.println(TOTAL_PRICE_SCREEN);
+        System.out.printf(TOTAL_PRICE_MESSAGE, totalPrice);
     }
 }

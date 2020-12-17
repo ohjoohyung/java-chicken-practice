@@ -25,6 +25,10 @@ public class Menu {
         return number == menuNumber;
     }
 
+    public boolean isChicken() {
+        return Category.CHICKEN.equals(category);
+    }
+
     @Override
     public String toString() {
         return category + " " + number + " - " + name + " : " + price + "원";

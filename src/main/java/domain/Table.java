@@ -2,10 +2,11 @@ package domain;
 
 
 
+import view.OutputView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Table {
     private static final int MIN_ORDER_SIZE = 1;
@@ -38,6 +39,37 @@ public class Table {
     public List<Order> getOrders() {
         return Collections.unmodifiableList(orders);
     }
+
+    public int getTotalPrice() {
+        int totalPrice = calculateChickenOrder() + calculateOtherOrder();
+        return totalPrice;
+    }
+
+    public int calculateChickenOrder() {
+        int chickenCount = 0;
+        int chickenPrice = 0;
+        for (Order order : orders) {
+            if (order.isChickenOrdered()) {
+                chickenCount = order.sumChickenCount(chickenCount);
+                chickenPrice += order.calculateMenuPrice();
+                System.out.println(chickenCount + "/" + chickenPrice);
+            }
+        }
+        chickenPrice -= (chickenCount / 10) * 10000;
+        return chickenPrice;
+    }
+
+    public int calculateOtherOrder() {
+        int otherPrice = 0;
+        for (Order order : orders) {
+            if (!order.isChickenOrdered()) {
+                otherPrice = order.calculateMenuPrice();
+            }
+        }
+        return otherPrice;
+    }
+
+
 
     @Override
     public String toString() {
