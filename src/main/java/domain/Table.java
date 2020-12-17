@@ -1,9 +1,5 @@
 package domain;
 
-
-
-import view.OutputView;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,7 +48,6 @@ public class Table {
             if (order.isChickenOrdered()) {
                 chickenCount = order.sumChickenCount(chickenCount);
                 chickenPrice += order.calculateMenuPrice();
-                System.out.println(chickenCount + "/" + chickenPrice);
             }
         }
         chickenPrice -= (chickenCount / 10) * 10000;

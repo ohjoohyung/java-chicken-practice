@@ -35,7 +35,6 @@ public class InputView {
         }
     }
 
-
     public static int inputTableNumber() {
         System.out.println(INPUT_TABLE_NUMBER_MESSAGE);
         return InputValidator.checkInteger(scanner.nextLine());
@@ -60,6 +59,5 @@ public class InputView {
         System.out.println(INPUT_TABLE_NUMBER_MESSAGE_TO_PAY);
         return InputValidator.checkInteger(scanner.nextLine());
     }
-
 
 }

@@ -1,8 +1,5 @@
 package domain;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Order {
     private static final String SPACE = " ";
     private Menu menu;

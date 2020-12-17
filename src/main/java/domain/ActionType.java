@@ -1,5 +1,7 @@
 package domain;
 
+import exception.PosProgramException;
+
 import java.util.Arrays;
 
 public enum ActionType {
@@ -8,7 +10,7 @@ public enum ActionType {
     PAYMENT("2"),
     END_PROGRAM("3");
 
-    private static final String MENU_ERROR = "[ERROR] 잘못 입력하셨습니다.\n";
+    private static final String INPUT_ERROR = "잘못 입력하셨습니다.";
     private String text;
 
     ActionType(String text) {
@@ -19,6 +21,6 @@ public enum ActionType {
         return Arrays.stream(ActionType.values())
                 .filter(menu -> menu.text.equals(menuInput))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException(MENU_ERROR));
+                .orElseThrow(() -> new PosProgramException(INPUT_ERROR));
     }
 }

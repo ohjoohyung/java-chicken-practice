@@ -1,5 +1,7 @@
 package domain;
 
+import exception.PosProgramException;
+
 import java.util.Arrays;
 
 public enum PayType {
@@ -8,7 +10,7 @@ public enum PayType {
     CASH("2");
 
     private String text;
-    private static final String MENU_ERROR = "[ERROR] 잘못 입력하셨습니다.\n";
+    private static final String PAY_TYPE_ERROR = "결제 수단을 잘못 입력하셨습니다.";
     PayType(String text) {
         this.text = text;
     }
@@ -17,6 +19,6 @@ public enum PayType {
         return Arrays.stream(PayType.values())
                 .filter(pay -> pay.text.equals(input))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException(MENU_ERROR));
+                .orElseThrow(() -> new PosProgramException(PAY_TYPE_ERROR));
     }
 }
