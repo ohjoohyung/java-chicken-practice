@@ -13,6 +13,14 @@ public class Menu {
         this.price = price;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     public boolean isMenuNumber(int menuNumber) {
         return number == menuNumber;
     }

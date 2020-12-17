@@ -3,7 +3,9 @@ package domain;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Table {
     private static final int MIN_ORDER_SIZE = 1;
@@ -18,12 +20,23 @@ public class Table {
         return number == tableNumber;
     }
 
-    public void addOrder(Order order) {
-        orders.add(order);
+
+    public void addOrder(Order newOrder) {
+        for (Order order : orders) {
+            if (order.isSameMenu(newOrder)) {
+                order.addNewMenuCount(newOrder);
+                return;
+            }
+        }
+        orders.add(newOrder);
     }
 
     public boolean isOrdered() {
         return orders.size() >= MIN_ORDER_SIZE;
+    }
+
+    public List<Order> getOrders() {
+        return Collections.unmodifiableList(orders);
     }
 
     @Override

@@ -3,17 +3,19 @@ package service;
 import domain.*;
 import view.InputView;
 import view.OutputView;
+import view.Screen;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class OrderService {
 
     public void order() {
         try {
-            visualizeTables();
+            Screen.visualizeTables();
             final int tableNumber = InputView.inputTableNumber();
             Table table = TableRepository.getTableByTableNumber(tableNumber);
-            visualizeMenus();
+            Screen.visualizeMenus();
             final int menuNumber = InputView.inputMenuNumber();
             Menu menu = MenuRepository.getMenuByMenuNumber(menuNumber);
             MenuCount menuCount = InputView.inputMenuCount();
@@ -23,13 +25,4 @@ public class OrderService {
         }
     }
 
-    public void visualizeTables() {
-        final List<Table> tables = TableRepository.tables();
-        OutputView.printTables(tables);
-    }
-
-    public void visualizeMenus() {
-        final List<Menu> menus = MenuRepository.menus();
-        OutputView.printMenus(menus);
-    }
 }

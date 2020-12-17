@@ -1,6 +1,7 @@
 package view;
 
 import domain.Menu;
+import domain.Order;
 import domain.Table;
 
 import java.util.List;
@@ -9,7 +10,9 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ %s ┘";
-
+    private static final String ORDER_SCREEN = "## 주문 내역";
+    private static final String MENU_COUNT_PRICE_SCREEN = "메뉴 수량 금액";
+    private static final String PAYMENT_MESSAGE = "## %d번 테이블의 결제를 진행합니다.\n";
     private OutputView() {
 
     }
@@ -52,5 +55,16 @@ public class OutputView {
             System.out.printf(TABLE_FORMAT, table);
         }
         System.out.println();
+    }
+
+    public static void printOrders(Table table) {
+        System.out.println(ORDER_SCREEN);
+        System.out.println(MENU_COUNT_PRICE_SCREEN);
+        table.getOrders().stream()
+                .forEach(order -> System.out.println(order));
+    }
+
+    public static void printPaymentMessage(int tableNumber) {
+        System.out.printf(PAYMENT_MESSAGE, tableNumber);
     }
 }

@@ -1,13 +1,16 @@
 import domain.ActionType;
 import service.OrderService;
+import service.PayService;
 import view.InputView;
 
 public class PosProgram {
 
-    private OrderService orderService;
+    private final OrderService orderService;
+    private final PayService payService;
 
     public PosProgram() {
         orderService = new OrderService();
+        payService = new PayService();
     }
 
     public void run() {
@@ -21,6 +24,10 @@ public class PosProgram {
     private void selectMenu(ActionType actionType) {
         if (ActionType.ORDER.equals(actionType)) {
             orderService.order();
+            return;
+        }
+        if (ActionType.PAYMENT.equals(actionType)) {
+            payService.pay();
         }
     }
 

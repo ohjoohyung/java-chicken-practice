@@ -2,6 +2,7 @@ package view;
 
 import domain.ActionType;
 import domain.MenuCount;
+import domain.PayType;
 import utils.InputValidator;
 
 import java.util.Scanner;
@@ -14,7 +15,9 @@ public class InputView {
     private static final String INPUT_TABLE_NUMBER_MESSAGE = "## 주문할 테이블을 선택하세요.";
     private static final String INPUT_MENU_NUMBER_MESSAGE = "## 등록할 메뉴를 선택하세요.";
     private static final String INPUT_MENU_COUNT = "## 메뉴의 수량을 입력하세요.";
+    private static final String PAY_TYPE_MESSAGE = "## 신용 카드는 1번, 현금은 2번";
 
+    private static final String INPUT_TABLE_NUMBER_MESSAGE_TO_PAY = "## 테이블을 선택하세요.";
 
     private InputView() {
 
@@ -47,4 +50,16 @@ public class InputView {
         System.out.println(INPUT_MENU_COUNT);
         return new MenuCount(InputValidator.checkInteger(scanner.nextLine()));
     }
+
+    public static PayType inputPayType() {
+        System.out.println(PAY_TYPE_MESSAGE);
+        return PayType.of(scanner.nextLine());
+    }
+
+    public static int inputTableNumberToPay() {
+        System.out.println(INPUT_TABLE_NUMBER_MESSAGE_TO_PAY);
+        return InputValidator.checkInteger(scanner.nextLine());
+    }
+
+
 }
