@@ -8,7 +8,6 @@ public class MenuCount {
     private static final String COUNT_RANGE_ERROR = "주문 가능 수량은 1개 ~ 99개입니다.";
     private static final String COUNT_OVER_MAX_COUNT_ERROR = "최대 주문 가능 수량은 99개입니다. 현재 수량: %d개";
 
-
     private int menuCount;
 
     public MenuCount(int menuCount) {
@@ -35,6 +34,4 @@ public class MenuCount {
     public void sumMenuCount(MenuCount newMenuCount) {
         this.menuCount += newMenuCount.menuCount;
     }
-
-
 }

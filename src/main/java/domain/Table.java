@@ -6,6 +6,9 @@ import java.util.List;
 
 public class Table {
     private static final int MIN_ORDER_SIZE = 1;
+    private static final int CHICKEN_COUNT_FOR_DISCOUNT = 10;
+    private static final int PER_DISCOUNT_MONEY = 10000;
+
     private final int number;
     private List<Order> orders = new ArrayList<>();
 
@@ -40,30 +43,28 @@ public class Table {
         return totalPrice;
     }
 
-    public int calculateChickenOrder() {
+    private int calculateChickenOrder() {
         int chickenCount = 0;
         int chickenPrice = 0;
         for (Order order : orders) {
-            if (order.isChickenOrdered()) {
+            if (order.isMenuChicken()) {
                 chickenCount = order.sumChickenCount(chickenCount);
                 chickenPrice += order.calculateMenuPrice();
             }
         }
-        chickenPrice -= (chickenCount / 10) * 10000;
+        chickenPrice -= (chickenCount / CHICKEN_COUNT_FOR_DISCOUNT) * PER_DISCOUNT_MONEY;
         return chickenPrice;
     }
 
-    public int calculateOtherOrder() {
+    private int calculateOtherOrder() {
         int otherPrice = 0;
         for (Order order : orders) {
-            if (!order.isChickenOrdered()) {
+            if (!order.isMenuChicken()) {
                 otherPrice = order.calculateMenuPrice();
             }
         }
         return otherPrice;
     }
-
-
 
     @Override
     public String toString() {

@@ -19,7 +19,7 @@ public class Order {
         menuCount.sumMenuCount(newOrder.menuCount);
     }
 
-    public boolean isChickenOrdered() {
+    public boolean isMenuChicken() {
         return menu.isChicken();
     }
 
