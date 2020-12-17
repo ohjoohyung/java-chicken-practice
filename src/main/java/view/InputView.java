@@ -1,6 +1,7 @@
 package view;
 
 import domain.MainMenuType;
+import domain.TableRepository;
 
 import java.util.Scanner;
 
@@ -28,8 +29,8 @@ public class InputView {
     }
 
 
-    public static int inputTableNumber() {
+    public static String inputTableNumber() {
         System.out.println("## 주문할 테이블을 선택하세요.");
-        return scanner.nextInt();
+        return scanner.nextLine();
     }
 }
