@@ -66,6 +66,10 @@ public class Table {
         return otherPrice;
     }
 
+    public void orderClear() {
+        orders.clear();
+    }
+
     @Override
     public String toString() {
         return Integer.toString(number);

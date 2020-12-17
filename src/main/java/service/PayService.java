@@ -19,6 +19,7 @@ public class PayService {
             OutputView.printPaymentMessage(tableNumber);
             PayType payType = InputView.inputPayType();
             selectPayType(payType, table);
+            table.orderClear();
         }catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
