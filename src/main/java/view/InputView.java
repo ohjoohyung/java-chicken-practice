@@ -53,6 +53,4 @@ public class InputView {
         System.out.println(PAY_TYPE_MESSAGE);
         return PayType.of(scanner.nextLine());
     }
-
-
 }

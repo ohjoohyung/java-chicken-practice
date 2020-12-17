@@ -7,5 +7,4 @@ public class PosProgramException extends IllegalArgumentException{
     public PosProgramException(String errorMessage) {
         super(NEW_LINE + PREFIX + errorMessage);
     }
-
 }

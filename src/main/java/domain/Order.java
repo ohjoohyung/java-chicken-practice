@@ -14,9 +14,9 @@ public class Order {
         return menu.getName().equals(order.menu.getName());
     }
 
-    public void addNewMenuCount(Order newOrder) {
+    public void addSameMenu(Order newOrder) {
         menuCount.checkOverMaxCountIfAdd(newOrder.menuCount);
-        menuCount.addNewMenuCount(newOrder.menuCount);
+        menuCount.sumMenuCount(newOrder.menuCount);
     }
 
     public boolean isChickenOrdered() {

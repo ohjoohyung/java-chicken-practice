@@ -32,7 +32,7 @@ public class MenuCount {
         }
     }
 
-    public void addNewMenuCount(MenuCount newMenuCount) {
+    public void sumMenuCount(MenuCount newMenuCount) {
         this.menuCount += newMenuCount.menuCount;
     }
 

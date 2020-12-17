@@ -17,11 +17,10 @@ public class Table {
         return number == tableNumber;
     }
 
-
     public void addOrder(Order newOrder) {
         for (Order order : orders) {
             if (order.isSameMenu(newOrder)) {
-                order.addNewMenuCount(newOrder);
+                order.addSameMenu(newOrder);
                 return;
             }
         }
